@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.successTeam</groupId>
+    <artifactId>homemaking</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <!--指定父项目-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.12.RELEASE</version>
+    </parent>
+
+
+    <!--版本管理-->
+    <properties>
+        <cn.hutool-hutool.all-version>5.8.28</cn.hutool-hutool.all-version>
+        <org.springframework.cloud-spring.cloud.dependencies-version>Hoxton.SR12</org.springframework.cloud-spring.cloud.dependencies-version>
+        <com.alibaba.cloud-spring.cloud.alibaba.dependencies-version>2.2.7.RELEASE</com.alibaba.cloud-spring.cloud.alibaba.dependencies-version>
+        <com.alibaba-druid-version>1.2.16</com.alibaba-druid-version>
+        <com.mybatis.flex-flex-version>1.8.2</com.mybatis.flex-flex-version>
+        <org.springframework.boot-redis-version>2.7.18</org.springframework.boot-redis-version>
+    </properties>
+
+    <dependencies>
+        <!--引入hutool工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${cn.hutool-hutool.all-version}</version>
+        </dependency>
+
+        <!--引入lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--指定spring.cloud的版本-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${org.springframework.cloud-spring.cloud.dependencies-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--指定spring.cloud.alibaba的版本-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${com.alibaba.cloud-spring.cloud.alibaba.dependencies-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--指定数据库连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${com.alibaba-druid-version}</version>
+            </dependency>
+            <!--指定持久化框架-->
+            <dependency>
+                <groupId>com.mybatis-flex</groupId>
+                <artifactId>mybatis-flex-spring-boot-starter</artifactId>
+                <version>${com.mybatis.flex-flex-version}</version>
+            </dependency>
+            <!--指定redis版本-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${org.springframework.boot-redis-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
