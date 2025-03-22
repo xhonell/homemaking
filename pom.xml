@@ -11,6 +11,7 @@
     <modules>
         <module>homemaking-api</module>
         <module>homemaking-common</module>
+        <module>homemaking-modules</module>
     </modules>
 
     <!--指定父项目-->
