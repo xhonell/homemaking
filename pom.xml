@@ -8,6 +8,10 @@
     <artifactId>homemaking</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>homemaking-api</module>
+        <module>homemaking-common</module>
+    </modules>
 
     <!--指定父项目-->
     <parent>
