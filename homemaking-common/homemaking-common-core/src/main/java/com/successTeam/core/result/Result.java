@@ -1,5 +1,6 @@
 package com.successTeam.core.result;
 
+import com.successTeam.core.result.ResultEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -13,10 +14,10 @@ import java.io.Serializable;
  * Version 1.0
  **/
 @Data
-public class Result<T> implements Serializable {
+public class Result implements Serializable {
     private Integer code;
     private String message;
-    private T data;
+    private Object data;
 
     public Result(ResultEnum resultEnum) {
         this.code = resultEnum.getCode();
@@ -31,8 +32,8 @@ public class Result<T> implements Serializable {
      * @param data 返回数据
      * @return 返回结果
      */
-    private Result<T> build(ResultEnum resultEnum, T data) {
-        Result<T> result = new Result<>(resultEnum);
+    private static Result build(ResultEnum resultEnum, Object data) {
+        Result result = new Result(resultEnum);
         result.setData(data);
         return result;
     }
@@ -42,7 +43,7 @@ public class Result<T> implements Serializable {
      * @param Data 数据
      * @return Result
      */
-    public Result<T> buildSuccess(T Data){
+    public static Result buildSuccess(Object Data){
         return build(ResultEnum.OPERATION_SUCCESS, Data);
     }
 
@@ -50,7 +51,7 @@ public class Result<T> implements Serializable {
      * 响应一个默认的成功消息
      * @return Result
      */
-    public Result<T> buildSuccess(){
+    public static Result buildSuccess(){
         return build(ResultEnum.OPERATION_SUCCESS, null);
     }
 
@@ -60,7 +61,7 @@ public class Result<T> implements Serializable {
      * @param Data 数据
      * @return Result
      */
-    public Result<T> buildFail(ResultEnum resultEnum, T Data){
+    public static Result buildFail(ResultEnum resultEnum, Object Data){
         return build(resultEnum, Data);
     }
 
@@ -69,7 +70,7 @@ public class Result<T> implements Serializable {
      * @param resultEnum 错误类型
      * @return Result
      */
-    public Result<T> buildFail(ResultEnum resultEnum){
+    public static Result buildFail(ResultEnum resultEnum){
         return build(resultEnum, null);
     }
 
@@ -77,7 +78,9 @@ public class Result<T> implements Serializable {
      * 响应一个系统繁忙的错误信息
      * @return Result
      */
-    public Result<T> buildFail(){
+    public static Result buildFail(){
         return build(ResultEnum.SYSTEM_BUSYNESS, null);
     }
+
+
 }

@@ -1,0 +1,42 @@
+server:
+  port: 8080
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: homemaking-app-gateway
+  redis:
+    database: 0
+    host: 8.137.82.234
+    port: 6379
+    password: @Hx1234568.
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          # 让gateway可以发现nacos中的服务
+          enabled: true
+      routes:
+        # 当前路由的唯一标识
+        - id: user_route
+          uri: lb://user-service
+          order: 1
+          # 当请求路径满足Path指定的规则时,才进行路由转发
+          predicates:
+            - Path=/user-api/**
+          # 转发之前去掉1层路径
+          filters:
+              - StripPrefix=1
+        # 当前路由的唯一标识
+        - id: auth_route
+          uri: lb://auth-service
+          order: 1
+          # 当请求路径满足Path指定的规则时,才进行路由转发
+          predicates:
+            - Path=/auth-api/**
+          # 转发之前去掉1层路径
+          filters:
+            - StripPrefix=1

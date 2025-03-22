@@ -6,7 +6,8 @@ import lombok.Data;
 
 public enum ResultEnum {
     OPERATION_SUCCESS(0,"操作成功"),
-    SYSTEM_BUSYNESS(20001, "系统繁忙，请稍后再试");
+    SYSTEM_BUSYNESS(20001, "系统繁忙，请稍后再试"),
+    TOKEN_IS_NULL(20002, "Token不存在" );
 
     private Integer code;
     private String message;

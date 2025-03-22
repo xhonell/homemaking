@@ -16,10 +16,18 @@
 
 
     <dependencies>
+        <!--映入nacos依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!--引入flex依赖-->
         <dependency>
             <groupId>com.mybatis-flex</groupId>
             <artifactId>mybatis-flex-spring-boot-starter</artifactId>
         </dependency>
+
         <!--添加druid依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>

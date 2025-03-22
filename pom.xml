@@ -13,6 +13,7 @@
         <module>homemaking-common</module>
         <module>homemaking-modules</module>
         <module>homemaking-auth</module>
+        <module>homemaking-app-gateway</module>
     </modules>
 
     <!--指定父项目-->

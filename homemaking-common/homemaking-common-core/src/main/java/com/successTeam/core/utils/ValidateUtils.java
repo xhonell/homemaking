@@ -1,6 +1,6 @@
 package com.successTeam.core.utils;
 
-import com.successTeam.common.exception.ValidateException;
+import cn.hutool.core.exceptions.ValidateException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
