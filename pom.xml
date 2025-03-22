@@ -12,6 +12,7 @@
         <module>homemaking-api</module>
         <module>homemaking-common</module>
         <module>homemaking-modules</module>
+        <module>homemaking-auth</module>
     </modules>
 
     <!--指定父项目-->

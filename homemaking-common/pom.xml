@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>homemaking-common-core</module>
+        <module>homemaking-common-redis</module>
     </modules>
     <artifactId>homemaking-common</artifactId>
 
