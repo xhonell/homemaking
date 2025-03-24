@@ -12,6 +12,8 @@
     <modules>
         <module>homemaking-user</module>
         <module>homemaking-cat</module>
+        <module>homemaking-move</module>
+        <module>homemaking-appraise</module>
     </modules>
     <artifactId>homemaking-modules</artifactId>
 
