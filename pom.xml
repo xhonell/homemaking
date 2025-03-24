@@ -14,6 +14,7 @@
         <module>homemaking-modules</module>
         <module>homemaking-auth</module>
         <module>homemaking-app-gateway</module>
+        <module>homemaking-modules</module>
     </modules>
 
     <!--指定父项目-->
@@ -30,7 +31,7 @@
         <org.springframework.cloud-spring.cloud.dependencies-version>Hoxton.SR12</org.springframework.cloud-spring.cloud.dependencies-version>
         <com.alibaba.cloud-spring.cloud.alibaba.dependencies-version>2.2.7.RELEASE</com.alibaba.cloud-spring.cloud.alibaba.dependencies-version>
         <com.alibaba-druid-version>1.2.16</com.alibaba-druid-version>
-        <com.mybatis.flex-flex-version>1.8.2</com.mybatis.flex-flex-version>
+        <com.mybatis.flex-flex-version>1.10.9</com.mybatis.flex-flex-version>
         <org.springframework.boot-redis-version>2.7.18</org.springframework.boot-redis-version>
     </properties>
 

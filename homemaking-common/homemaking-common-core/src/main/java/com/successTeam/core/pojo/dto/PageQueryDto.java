@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Data
 public class PageQueryDto implements Serializable {
     @Min(message = "页面最小值为1", value = 1L)
-    private Long page;
+    private Integer page;
     @Min(message = "分页最小值为1", value = 1L)
-    private Long limit;
+    private Integer limit;
 }

@@ -9,7 +9,7 @@ spring:
     database: 0
     host: 8.137.82.234
     port: 6379
-    password: @Hx1234568.
+    password: '@Hx1234568.'
   cloud:
     nacos:
       discovery:
@@ -37,6 +37,15 @@ spring:
           # 当请求路径满足Path指定的规则时,才进行路由转发
           predicates:
             - Path=/auth-api/**
+          # 转发之前去掉1层路径
+          filters:
+            - StripPrefix=1
+        - id: cat_route
+          uri: lb://cat-service
+          order: 1
+          # 当请求路径满足Path指定的规则时,才进行路由转发
+          predicates:
+            - Path=/cat-api/**
           # 转发之前去掉1层路径
           filters:
             - StripPrefix=1

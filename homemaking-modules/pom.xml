@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>homemaking-user</module>
+        <module>homemaking-cat</module>
     </modules>
     <artifactId>homemaking-modules</artifactId>
 
@@ -54,11 +55,30 @@
             <version>3.0.3</version>
         </dependency>
 
-
         <!--设置驱动的版本-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--redis-->
+        <dependency>
+            <groupId>com.successTeam</groupId>
+            <artifactId>homemaking-common-redis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!--core-->
+        <dependency>
+            <groupId>com.successTeam</groupId>
+            <artifactId>homemaking-common-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.3.0</version>
         </dependency>
 
     </dependencies>

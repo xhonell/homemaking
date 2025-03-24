@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.cat.mapper.CatMapper">
+
+    <select id="findCatByPage" resultType="com.successTeam.cat.pojo.vo.CatQueryVo" parameterType="com.successTeam.cat.pojo.dto.CatQueryDto">
+        select tb_cat.cat_id as catId,
+               tb_cat.type_id as typeId,
+               tb_cat_type.type_name as typeName,
+               tb_cat.cat_name as catName,
+               tb_cat.created,
+               tb_cat.updated
+        from
+            tb_cat,tb_cat_type
+        <where>
+            tb_cat.type_id = tb_cat_type.type_id
+            <if test="typeId != null">
+                and tb_cat.type_id = #{typeId}
+            </if>
+            <if test="catName != null and catName != ''">
+                and tb_cat.cat_name like concat("%",#{catName},"%")
+            </if>
+        </where>
+        order by tb_cat.created
+    </select>
+</mapper>
