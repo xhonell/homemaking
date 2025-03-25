@@ -12,6 +12,7 @@
     <modules>
         <module>homemaking-user</module>
         <module>homemaking-cat</module>
+        <module>homemaking-arrangement</module>
     </modules>
     <artifactId>homemaking-modules</artifactId>
 
