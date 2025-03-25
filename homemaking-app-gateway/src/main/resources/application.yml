@@ -33,7 +33,7 @@ spring:
         # 当前路由的唯一标识
         - id: auth_route
           uri: lb://auth-service
-          order: 1
+          order: 2
           # 当请求路径满足Path指定的规则时,才进行路由转发
           predicates:
             - Path=/auth-api/**
@@ -42,10 +42,19 @@ spring:
             - StripPrefix=1
         - id: cat_route
           uri: lb://cat-service
-          order: 1
+          order: 3
           # 当请求路径满足Path指定的规则时,才进行路由转发
           predicates:
             - Path=/cat-api/**
+          # 转发之前去掉1层路径
+          filters:
+            - StripPrefix=1
+        - id: order_route
+          uri: lb://order-service
+          order: 4
+          # 当请求路径满足Path指定的规则时,才进行路由转发
+          predicates:
+            - Path=/order-api/**
           # 转发之前去掉1层路径
           filters:
             - StripPrefix=1
