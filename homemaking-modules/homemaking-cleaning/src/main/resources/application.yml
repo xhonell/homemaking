@@ -1,0 +1,29 @@
+server:
+  port: 8092
+spring:
+  redis:
+    port: 6379
+    host: 8.137.82.234
+    password: '@Hx1234568.'
+  datasource:
+    username: root
+    password: '@Hx1234568.'
+    url: jdbc:mysql://8.137.82.234/db_homemaking?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        service: cleaning-service
+mybatis-flex:
+  mapper-locations: classpath:/com/successTeam/cleaning/mapper/*.xml
+  type-aliases-package: com.successTeam.cleaning.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 输出 SQL 日志
+  global-config:
+    column-config:
+      column-to-underline: true  # 关键配置：启用驼峰转下划线
+logging:
+  level:
+    com.successTeam.cleaning.mapper: debug
