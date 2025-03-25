@@ -15,6 +15,7 @@
         <module>homemaking-arrangement</module>
         <module>homemaking-move</module>
         <module>homemaking-appraise</module>
+        <module>homemaking-cleaning</module>
     </modules>
     <artifactId>homemaking-modules</artifactId>
 
