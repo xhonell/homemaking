@@ -14,7 +14,8 @@ public enum ServerRouteEnum {
      */
     USER_ROUTE("user_route", "用户微服务接口"),
     AUTH_ROUTE("auth_route", "认证中心微服务接口"),
-    CAT_ROUTE("cat_route", "宠物中心微服务接口");
+    CAT_ROUTE("cat_route", "宠物中心微服务接口"),
+    ORDER_ROUTE("order_route", "订单微服务接口"),;
 
 
     private String routeId;

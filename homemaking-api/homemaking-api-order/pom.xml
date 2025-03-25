@@ -5,24 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.successTeam</groupId>
-        <artifactId>homemaking</artifactId>
+        <artifactId>homemaking-api</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <modules>
-        <module>homemaking-api-order</module>
-    </modules>
-    <packaging>pom</packaging>
-    <artifactId>homemaking-api</artifactId>
+    <artifactId>homemaking-api-order</artifactId>
 
     <dependencies>
-        <!--引入远程调用的依赖-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.successTeam</groupId>
+            <artifactId>homemaking-common-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
-
 
 
 </project>
