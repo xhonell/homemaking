@@ -26,6 +26,14 @@ public class Move implements Serializable {
   @Column("floor_id")
   private Long floorId;
 
+  //起始地址
+  @Column("start_position")
+  private String startPosition;
+
+  //目标地址
+  @Column("target_position")
+  private String targetPosition;
+
   //里程数
   @Column("move_distance")
   private Double moveDistance;

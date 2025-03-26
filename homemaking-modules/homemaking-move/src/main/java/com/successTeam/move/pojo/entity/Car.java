@@ -22,6 +22,14 @@ public class Car implements Serializable {
   @Column("car_type")
   private String carType;
 
+  //车型大小
+  @Column("car_size")
+  private String carSize;
+
+  //车型详情
+  @Column("car_detail")
+  private String carDetail;
+
   //车型底价
   @Column("base_price")
   private Double basePrice;
