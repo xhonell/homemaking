@@ -22,18 +22,26 @@ import java.util.Date;
 @Table("tb_employee")
 public class Employee implements Serializable {
     @Id(keyType = KeyType.Auto)
-    private Long id;
-    private String name;
+    @Column("employee_id")
+    private Long employeeId;
+    @Column("employee_name")
+    private String employeeName;
     private String password;
-    private String type;
-    private String grade;
+    @Column("employee_type")
+    private String employeeType;
+    @Column("employee_grade")
+    private String employeeGrade;
 
-    private String phone;
-    private String sex;
+    @Column("employee_phone")
+    private String employeePhone;
+    @Column("employee_sex")
+    private String employeeSex;
     @Column("employee_experience_time")
     private String employeeExperienceTime;
     @Column("employee_experience")
     private String employeeExperience;
+
+    private String salt;
     @Column("create_time")
     private Date createTime;
     @Column("update_time")
