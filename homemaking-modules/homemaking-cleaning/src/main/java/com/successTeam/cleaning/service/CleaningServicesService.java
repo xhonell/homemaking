@@ -1,4 +1,7 @@
 package com.successTeam.cleaning.service;
 
-public interface CleaningServicesService {
+import com.mybatisflex.core.service.IService;
+import com.successTeam.cleaning.pojo.entity.CleaningServices;
+
+public interface CleaningServicesService extends IService<CleaningServices> {
 }
