@@ -1,6 +1,7 @@
 package com.successTeam.move.service;
 
 import com.mybatisflex.core.service.IService;
+import com.successTeam.move.pojo.dto.MoveAddDto;
 import com.successTeam.move.pojo.entity.Move;
 
 /**
@@ -10,4 +11,11 @@ import com.successTeam.move.pojo.entity.Move;
  * Version: V1.0
  */
 public interface MoveService extends IService<Move> {
+
+    /**
+     * 添加搬家行程
+     * @param moveAddDto
+     */
+    void addMove(MoveAddDto moveAddDto);
+
 }

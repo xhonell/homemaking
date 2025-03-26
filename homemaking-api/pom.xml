@@ -11,6 +11,7 @@
 
     <modules>
         <module>homemaking-api-order</module>
+        <module>homemaking-api-auth</module>
     </modules>
     <packaging>pom</packaging>
     <artifactId>homemaking-api</artifactId>
@@ -21,8 +22,15 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-    </dependencies>
 
+        <!--core-->
+        <dependency>
+            <groupId>com.successTeam</groupId>
+            <artifactId>homemaking-common-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

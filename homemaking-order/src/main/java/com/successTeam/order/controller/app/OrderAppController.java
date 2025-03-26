@@ -1,6 +1,7 @@
 package com.successTeam.order.controller.app;
 
 import com.successTeam.order.pojo.dto.OrderGenerateDto;
+import com.successTeam.order.pojo.vo.OrderQueryVo;
 import com.successTeam.order.service.OrderService;
 import com.successTeam.core.result.Result;
 import com.successTeam.core.utils.ValidateUtils;
@@ -9,10 +10,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * program: homemaking
@@ -42,5 +42,12 @@ public class OrderAppController {
         ValidateUtils.getFirstErrorMsg(bindingResult);
         String orderId = orderService.generateOrder(orderGenerateDto);
         return Result.buildSuccess(orderId);
+    }
+
+    @GetMapping("/findOrderById")
+    @ApiOperation("根据用户编号查询订单")
+    public Result findOrderById(){
+        List<OrderQueryVo> orderQueryVos = orderService.findOrderById();
+        return Result.buildSuccess(orderQueryVos);
     }
 }

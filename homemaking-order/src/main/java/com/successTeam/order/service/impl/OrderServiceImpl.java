@@ -1,9 +1,12 @@
 package com.successTeam.order.service.impl;
 
+import com.successTeam.core.pojo.entity.UserRedis;
+import com.successTeam.core.service.impl.UserLocalThreadImpl;
 import com.successTeam.order.mapper.OrderMapper;
 import com.successTeam.order.pojo.dto.OrderGenerateDto;
 import com.successTeam.order.pojo.entity.Order;
 import com.successTeam.order.pojo.entity.OrderInfo;
+import com.successTeam.order.pojo.vo.OrderQueryVo;
 import com.successTeam.order.service.OrderInfoService;
 import com.successTeam.order.service.OrderService;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
@@ -13,7 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -65,5 +70,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         orderInfo.setInfoStatus(1L);
         orderInfoService.save(orderInfo);
         return  orderId;
+    }
+
+    /**
+     * 根据编号查询订单详情
+     * @return
+     */
+    @Override
+    public List<OrderQueryVo> findOrderById() {
+        // 从当前线程中获取编号
+        UserRedis userRedis = UserLocalThreadImpl.get();
+        Long userId = userRedis.getUserId();
+        return getMapper().findOrderById(userId);
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.nanny.mapper.NannyMapper">
+
+    <select id="findNannyByType" parameterType="com.successTeam.nanny.pojo.dto.NannyTypeQueryDto" resultType="com.successTeam.nanny.pojo.entity.Nanny">
+        SELECT
+        n.nanny_id,
+        n.nanny_name,
+        n.nanny_age,
+        n.type,
+        n.employee_experience_time
+        FROM
+        tb_nanny n
+        JOIN
+        tb_nanny_type nt
+        ON n.type = nt.type
+        <where>
+            <if test="type!=null and type!=''">
+                and n.type = #{type}
+            </if>
+        </where>
+    </select>
+
+
+
+
+
+
+
+
+</mapper>
+
+
+
+

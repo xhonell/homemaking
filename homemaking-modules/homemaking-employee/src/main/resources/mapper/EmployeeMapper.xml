@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.nanny.mapper.EmployeeMapper">
+
+    <select id="findById" parameterType="com.successTeam.nanny.pojo.entity.Employee" resultType="com.successTeam.nanny.pojo.entity.Employee">
+        SELECT
+            e.employee_id,
+            e.employee_name,
+            e.employee_type,
+            e.employee_grade,
+            e.employee_phone,
+            e.employee_sex,
+            e.employee_experience_time,
+            e.employee_experience
+            FROM
+            tb_employee e
+
+        <where>
+            <if test="employeeId!=null and employeeId!=''">
+                and e.employee_id = #{employeeId}
+            </if>
+        </where>
+    </select>
+
+
+
+
+
+
+
+
+</mapper>
+
+
+
+

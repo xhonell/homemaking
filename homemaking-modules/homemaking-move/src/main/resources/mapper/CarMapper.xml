@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.move.mapper.CarMapper">
+
+    <select id="findCarById" parameterType="long" resultType="map">
+        select base_distance,single_price,extra_price from tb_car where car_id=#{carId}
+    </select>
+
+</mapper>
+
+  
+   
+
