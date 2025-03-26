@@ -11,14 +11,7 @@
 
     <artifactId>homemaking-api-order</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.successTeam</groupId>
-            <artifactId>homemaking-common-core</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+
 
 
 </project>

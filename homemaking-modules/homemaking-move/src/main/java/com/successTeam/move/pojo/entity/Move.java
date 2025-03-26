@@ -6,11 +6,12 @@ import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Table("tb_move")
-public class Move {
+public class Move implements Serializable {
 
   //搬家ID
   @Id(keyType = KeyType.Auto)
@@ -35,7 +36,7 @@ public class Move {
 
   //额外搬家人数
   @Column("person_number")
-  private Long personNumber;
+  private Integer personNumber;
 
   //额外人数总价
   @Column("person_price")
