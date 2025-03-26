@@ -6,11 +6,12 @@ import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Table("tb_car")
-public class Car {
+public class Car implements Serializable {
 
   //车型ID
   @Id(keyType = KeyType.Auto)
@@ -24,6 +25,10 @@ public class Car {
   //车型底价
   @Column("base_price")
   private Double basePrice;
+
+  //基础里程
+  @Column("base_distance")
+  private Double baseDistance;
 
   //里程单价
   @Column("single_price")

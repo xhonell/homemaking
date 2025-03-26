@@ -4,9 +4,11 @@ import com.mybatisflex.annotation.Column;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Table("tb_move_employee")
-public class MoveEmployee {
+public class MoveEmployee implements Serializable {
 
   @Column("move_id")
   private Long moveId;

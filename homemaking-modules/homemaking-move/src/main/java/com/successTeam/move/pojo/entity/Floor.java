@@ -6,11 +6,12 @@ import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Table("tb_floor")
-public class Floor {
+public class Floor implements Serializable {
 
   //楼层ID
   @Id(keyType=KeyType.Auto)
