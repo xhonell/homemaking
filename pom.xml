@@ -14,9 +14,7 @@
         <module>homemaking-modules</module>
         <module>homemaking-auth</module>
         <module>homemaking-app-gateway</module>
-        <module>homemaking-modules</module>
         <module>homemaking-order</module>
-        <module>homemaking-api</module>
     </modules>
 
     <!--指定父项目-->

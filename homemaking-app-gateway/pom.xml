@@ -14,49 +14,49 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.successTeam</groupId>
+            <artifactId>homemaking-api-auth</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!--redis-->
         <dependency>
             <groupId>com.successTeam</groupId>
             <artifactId>homemaking-common-redis</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+        <!--core-->
         <dependency>
             <groupId>com.successTeam</groupId>
             <artifactId>homemaking-common-core</artifactId>
             <version>1.0.0</version>
         </dependency>
-
         <!--导入网关依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-
         <!--导入nacos服务注册发现依赖-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
-
         <!--swagger-ui-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-ui</artifactId>
             <version>3.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.successTeam</groupId>
-            <artifactId>homemaking-common-redis</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

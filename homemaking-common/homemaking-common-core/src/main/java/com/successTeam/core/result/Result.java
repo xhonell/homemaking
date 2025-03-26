@@ -14,10 +14,10 @@ import java.io.Serializable;
  * Version 1.0
  **/
 @Data
-public class Result implements Serializable {
+public class Result<T> implements Serializable {
     private Integer code;
     private String message;
-    private Object data;
+    private T data;
     private Long total;
 
     public Result(ResultEnum resultEnum) {
@@ -33,8 +33,8 @@ public class Result implements Serializable {
      * @param data 返回数据
      * @return 返回结果
      */
-    private static Result build(ResultEnum resultEnum, Object data) {
-        Result result = new Result(resultEnum);
+    private static <T> Result<T> build(ResultEnum resultEnum, T data) {
+        Result<T> result = new Result<>(resultEnum);
         result.setData(data);
         return result;
     }
@@ -44,7 +44,7 @@ public class Result implements Serializable {
      * @param Data 数据
      * @return Result
      */
-    public static Result buildSuccess(Object Data){
+    public static <T> Result<T> buildSuccess(T Data){
         return build(ResultEnum.OPERATION_SUCCESS, Data);
     }
 
@@ -52,7 +52,7 @@ public class Result implements Serializable {
      * 响应一个默认的成功消息
      * @return Result
      */
-    public static Result buildSuccess(){
+    public static <T> Result<T> buildSuccess(){
         return build(ResultEnum.OPERATION_SUCCESS, null);
     }
 
@@ -62,8 +62,8 @@ public class Result implements Serializable {
      * @param Data 数据
      * @return Result
      */
-    public static Result buildSuccess(Long total,Object Data){
-        Result result = new Result(ResultEnum.OPERATION_SUCCESS);
+    public static <T> Result<T>  buildSuccess(Long total,T Data){
+        Result<T> result = new Result<>(ResultEnum.OPERATION_SUCCESS);
         result.setData(Data);
         result.setTotal(total);
         return result;
@@ -75,7 +75,7 @@ public class Result implements Serializable {
      * @param Data 数据
      * @return Result
      */
-    public static Result buildFail(ResultEnum resultEnum, Object Data){
+    public static <T> Result<T>  buildFail(ResultEnum resultEnum, T Data){
         return build(resultEnum, Data);
     }
 
@@ -84,7 +84,7 @@ public class Result implements Serializable {
      * @param resultEnum 错误类型
      * @return Result
      */
-    public static Result buildFail(ResultEnum resultEnum){
+    public static <T> Result<T>  buildFail(ResultEnum resultEnum){
         return build(resultEnum, null);
     }
 
@@ -92,15 +92,15 @@ public class Result implements Serializable {
      * 响应一个系统繁忙的错误信息
      * @return Result
      */
-    public static Result buildFail(){
+    public static <T> Result<T>  buildFail(){
         return build(ResultEnum.SYSTEM_BUSYNESS, null);
     }
 
     /**
      * 响应一个自定义状态码的错误
      */
-    public static Result buildFail(Integer code,String message){
-        Result result = new Result();
+    public static <T> Result<T>  buildFail(Integer code,String message){
+        Result<T> result = new Result<>();
         result.setCode(code);
         result.setMessage(message);
         return result;
@@ -110,7 +110,7 @@ public class Result implements Serializable {
      * 判断时候响应成功
      * @param isSuccess 条件
      */
-    public static Result judge(boolean isSuccess) {
+    public static <T> Result<T>  judge(boolean isSuccess) {
         return isSuccess?buildSuccess():buildFail(ResultEnum.OPERATION_FAIL);
     }
 }
