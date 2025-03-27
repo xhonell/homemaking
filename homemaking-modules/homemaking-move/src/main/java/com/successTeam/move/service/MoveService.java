@@ -2,7 +2,9 @@ package com.successTeam.move.service;
 
 import com.mybatisflex.core.service.IService;
 import com.successTeam.move.pojo.dto.MoveAddDto;
+import com.successTeam.move.pojo.dto.MoveQueryDto;
 import com.successTeam.move.pojo.entity.Move;
+import com.successTeam.move.pojo.vo.MoveList;
 
 import java.util.List;
 
@@ -13,6 +15,13 @@ import java.util.List;
  * Version: V1.0
  */
 public interface MoveService extends IService<Move> {
+
+    /**
+     * 根据查询条件查询搬家行程
+     * @param moveQueryDto
+     * @return
+     */
+    List<MoveList> findAllMove(MoveQueryDto moveQueryDto);
 
     /**
      * 添加搬家行程

@@ -4,7 +4,9 @@ import com.mybatisflex.spring.service.impl.ServiceImpl;
 import com.successTeam.move.mapper.CarMapper;
 import com.successTeam.move.mapper.MoveMapper;
 import com.successTeam.move.pojo.dto.MoveAddDto;
+import com.successTeam.move.pojo.dto.MoveQueryDto;
 import com.successTeam.move.pojo.entity.Move;
+import com.successTeam.move.pojo.vo.MoveList;
 import com.successTeam.move.service.MoveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,11 @@ public class MoveServiceImpl extends ServiceImpl<MoveMapper, Move> implements Mo
 
     @Autowired
     private CarMapper carMapper;
+
+    @Override
+    public List<MoveList> findAllMove(MoveQueryDto moveQueryDto) {
+        return moveMapper.findAllMove(moveQueryDto);
+    }
 
     @Override
     public void addMove(MoveAddDto moveAddDto) {

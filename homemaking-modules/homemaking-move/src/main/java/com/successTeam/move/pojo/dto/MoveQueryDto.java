@@ -25,4 +25,7 @@ public class MoveQueryDto extends PageQueryDto {
     //额外搬家人数
     private Integer personNumber;
 
+    //搬家人员
+    private Long employeeId;
+
 }

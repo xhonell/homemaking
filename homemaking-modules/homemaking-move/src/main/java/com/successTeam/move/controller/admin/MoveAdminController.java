@@ -1,10 +1,13 @@
 package com.successTeam.move.controller.admin;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.successTeam.core.pojo.dto.PageQueryDto;
 import com.successTeam.core.result.Result;
 import com.successTeam.move.pojo.dto.MoveQueryDto;
 import com.successTeam.move.pojo.entity.Move;
+import com.successTeam.move.pojo.vo.MoveList;
 import com.successTeam.move.service.MoveService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,16 +35,14 @@ public class MoveAdminController {
     private MoveService moveService;
 
     @GetMapping("/findAllMove")
-    @ApiOperation("查询所有搬家行程")
+    @ApiOperation("根据查询条件查询搬家行程")
     public Result findAllMove(@RequestBody MoveQueryDto moveQueryDto){
-        PageRequest pageRequest = PageRequest.of(moveQueryDto.getPage(), moveQueryDto.getLimit());
+        PageHelper.startPage(moveQueryDto.getPage(),moveQueryDto.getLimit());
 
-        QueryWrapper queryWrapper = QueryWrapper.create(pageRequest).eq(Move::getCarId,moveQueryDto.getCarId())
-                .eq(Move::getFloorId,moveQueryDto.getFloorId()).eq(Move::getMoveDistance,moveQueryDto.getMoveDistance())
-                .eq(Move::getPersonNumber,moveQueryDto.getPersonNumber());
+        List<MoveList> moveList=moveService.findAllMove(moveQueryDto);
 
-        List<Move> moveList = moveService.list(queryWrapper);
-        return Result.buildSuccess(moveList);
+        PageInfo<MoveList> moveListPageInfo = new PageInfo<>(moveList);
+        return Result.buildSuccess(moveListPageInfo.getTotal(),moveListPageInfo);
     }
 
     @GetMapping("/findAllMoveDistance")

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.appraise.mapper.AppraiseMapper">
+
+    <!--1.查询月嫂的所有评价-->
+    <select id="findAppraiseByNanny" parameterType="long" resultType="com.successTeam.appraise.pojo.vo.AppraiseList">
+        select a.appraise_id as appraiseId,a.appraise_core as appraiseCore,a.appraise_content as appraiseContent,
+        a.appraise_time as appraiseTime,a.appraise_reply as appraiseReply,a.reply_time as replyTime
+        from tb_appraise a left join tb_order o on a.order_id=o.order_id
+        left join tb_nanny n on n.order_id=o.order_id where n.nanny_id=#{nannyId}
+    </select>
+
+    <!--2.查询保洁的所有评价-->
+    <select id="findAppraiseByClean" resultType="com.successTeam.appraise.pojo.vo.AppraiseList">
+        select a.appraise_id as appraiseId,a.appraise_core as appraiseCore,a.appraise_content as appraiseContent,
+        a.appraise_time as appraiseTime,a.appraise_reply as appraiseReply,a.reply_time as replyTime
+        from tb_appraise a left join tb_order o on a.order_id=o.order_id
+        left join tb_clean c on c.order_id=o.order_id
+    </select>
+
+    <!--3.查询宠物的所有评价-->
+    <select id="findAppraiseByCat" resultType="com.successTeam.appraise.pojo.vo.AppraiseList">
+        select a.appraise_id as appraiseId,a.appraise_core as appraiseCore,a.appraise_content as appraiseContent,
+        a.appraise_time as appraiseTime,a.appraise_reply as appraiseReply,a.reply_time as replyTime
+        from tb_appraise a left join tb_order o on a.order_id=o.order_id
+        left join tb_cat c on c.order_id=o.order_id
+    </select>
+
+    <!--4.查询搬家的所有评价-->
+    <select id="findAppraiseByMove" resultType="com.successTeam.appraise.pojo.vo.AppraiseList">
+        select a.appraise_id as appraiseId,a.appraise_core as appraiseCore,a.appraise_content as appraiseContent,
+        a.appraise_time as appraiseTime,a.appraise_reply as appraiseReply,a.reply_time as replyTime
+        from tb_appraise a left join tb_order o on a.order_id=o.order_id
+        left join tb_move m on m.order_id=o.order_id
+    </select>
+
+    <!--5.查询维修的所有评价-->
+    <select id="findAppraiseByRepair" resultType="com.successTeam.appraise.pojo.vo.AppraiseList">
+        select a.appraise_id as appraiseId,a.appraise_core as appraiseCore,a.appraise_content as appraiseContent,
+        a.appraise_time as appraiseTime,a.appraise_reply as appraiseReply,a.reply_time as replyTime
+        from tb_appraise a left join tb_order o on a.order_id=o.order_id
+        left join tb_repair r on r.order_id=o.order_id
+    </select>
+
+
+</mapper>
+
+  
+   
+

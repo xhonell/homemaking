@@ -1,7 +1,9 @@
 package com.successTeam.move.mapper;
 
 import com.mybatisflex.core.BaseMapper;
+import com.successTeam.move.pojo.dto.MoveQueryDto;
 import com.successTeam.move.pojo.entity.Move;
+import com.successTeam.move.pojo.vo.MoveList;
 
 import java.util.List;
 
@@ -12,6 +14,9 @@ import java.util.List;
  * Version: V1.0
  */
 public interface MoveMapper extends BaseMapper<Move> {
+
+    //根据查询条件查询搬家行程
+    List<MoveList> findAllMove(MoveQueryDto moveQueryDto);
 
     //查询所有搬家里程数列表
     List<Double> findAllMoveDistance();

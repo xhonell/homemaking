@@ -4,12 +4,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.successTeam.move.mapper.MoveMapper">
 
-    <!--1.查询所有搬家里程数列表-->
+    <!--1.根据查询条件查询搬家行程-->
+    <select id="findAllMove" parameterType="com.successTeam.move.pojo.dto.MoveQueryDto" resultType="com.successTeam.move.pojo.vo.MoveList">
+        select m.move_id as moveId,c.car_type as carType,f.floor_type as floorType,m.start_position as startPosition,m.target_position as targetPosition,
+        m.move_distance as moveDistance,m.distance_price as distancePrice,m.person_number as personNumber,m.person_price as personPrice,
+        m.created_time as createdTime,m.updated_time as updatedTime,group_concat(e.employee_name separator '、') as personContent
+        from tb_move m left join tb_move_empoyee me on m.move_id=me.move_id
+        left join tb_employee e on me.employee_id=e.employee_id
+        left join tb_floor f on m.floor_id=f.floor_id
+        left join tb_car c on m.car_id=c.car_id
+        <where>
+            <if test="carId!=null">
+                and c.car_id=#{carId}
+            </if>
+            <if test="floorId!=null">
+                and f.floor_id=#{floorId}
+            </if>
+            <if test="moveDistance!=null and moveDistance!=''">
+                and m.move_distance=#{moveDistance}
+            </if>
+            <if test="personNumber!=null and personNumber!=''">
+                and m.person_number=#{personNumber}
+            </if>
+            <if test="employeeId!=null">
+                and e.employee_id=#{employeeId}
+            </if>
+        </where>
+    </select>
+
+    <!--2.查询所有搬家里程数列表-->
     <select id="findAllMoveDistance" resultType="double">
         select distinct move_distance from tb_move
     </select>
 
-    <!--2.查询所有搬家额外人数列表-->
+    <!--3.查询所有搬家额外人数列表-->
     <select id="findAllPersonNumber" resultType="int">
         select distinct person_number from tb_move
     </select>
