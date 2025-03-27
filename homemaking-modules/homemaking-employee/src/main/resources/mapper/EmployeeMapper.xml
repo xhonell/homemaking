@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.successTeam.nanny.mapper.EmployeeMapper">
+<mapper namespace="com.successTeam.employee.mapper.EmployeeMapper">
 
-    <select id="findById" parameterType="com.successTeam.nanny.pojo.entity.Employee" resultType="com.successTeam.nanny.pojo.entity.Employee">
+    <select id="findById" parameterType="com.successTeam.employee.pojo.entity.Employee" resultType="com.successTeam.employee.pojo.entity.Employee">
         SELECT
             e.employee_id,
             e.employee_name,
@@ -23,6 +23,84 @@
             </if>
         </where>
     </select>
+
+    <select id="findByRegisterDto" parameterType="com.successTeam.employee.pojo.dto.EmployeeRegisterDto" resultType="com.successTeam.employee.pojo.vo.EmployeeRegisterVo">
+        SELECT
+        e.employee_id,
+        e.employee_name,
+        e.employee_type,
+        e.employee_grade,
+        e.employee_phone,
+        e.employee_sex,
+        e.employee_experience_time,
+        e.employee_experience
+        FROM
+        tb_employee e
+
+        <where>
+            <if test="employeeId!=null and employeeId!=''">
+                and e.employee_id = #{employeeId}
+            </if>
+            <if test="employeeName!=null and employeeName!=''">
+                and e.employee_name = #{employeeName}
+            </if>
+            <if test="employeePhone!=null and employeePhone!=''">
+                and e.employee_phone = #{employeePhone}
+            </if>
+            <if test="employeeSex!=null and employeeSex!=''">
+                and e.employee_sex = #{employeeSex}
+            </if>
+            <if test="employeeType!=null and employeeType!=''">
+                and e.employee_type = #{employeeType}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addEmployee" parameterType="com.successTeam.employee.pojo.dto.EmployeeDto" useGeneratedKeys="true" keyProperty="employeeId">
+        INSERT INTO tb_employee(
+            employee_name,
+            password,
+            employee_type,
+            employee_grade,
+            employee_phone,
+            employee_sex,
+            employee_experience_time,
+            employee_experience
+        )
+        VALUES(
+            #{employeeName},
+               #{password},
+               #{employeeType},
+               #{employeeGrade},
+               #{employeePhone},
+               #{employeeSex},
+               #{employeeExperienceTime},
+               #{employeeExperience}
+        )
+    </insert>
+
+    <insert id="addEmployeeDetail" parameterType="com.successTeam.employee.pojo.dto.EmployeeRegisterDto" useGeneratedKeys="true" keyProperty="employeeDetailId">
+        INSERT INTO tb_employee_detail(
+            employee_id,
+            employee_address,
+            employee_clans,
+            employee_diploma,
+            employee_constellation,
+            employee_description,
+            employee_certificate,
+            employee_appraise
+        )
+        VALUES(
+            #{employeeId},
+            #{employeeAddress},
+            #{employeeClans},
+            #{employeeDiploma},
+            #{employeeConstellation},
+            #{employeeDescription},
+            #{employeeCertificate},
+            #{employeeAppraise}
+        )
+    </insert>
 
 
 

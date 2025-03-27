@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.employee.mapper.AuditMapper">
+
+    <insert id="insertAudit" parameterType="long">
+        insert into tb_audit(employee_detail_id) values (#{employeeDetailId})
+    </insert>
+
+
+    <update id="updateAudit" parameterType="com.successTeam.employee.pojo.dto.AuditDto">
+        update tb_audit set audit_status = #{auditStatus}, reject_reason = #{rejectReason} where audit_id = #{auditId}
+    </update>
+
+</mapper>
+
+
+
+

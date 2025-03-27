@@ -1,9 +1,15 @@
-package com.successTeam.nanny.service;/**
- * com.successTeam.nanny.service 
+package com.successTeam.nanny.service;
+
+import com.mybatisflex.core.service.IService;
+
+/**
+ * com.successTeam.nanny.service
  * User: hdh
  * Date: 2025/03/25 16:53
  * motto:   百折不挠
- * Description: 
+ * Description:
  * Version: V1.0
-*/public interface EmployeeService {
+ */
+public interface EmployeeService extends IService<Employee> {
+    Employee findById(Long id);
 }

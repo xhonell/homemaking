@@ -1,4 +1,4 @@
-package com.successTeam.nanny.config;
+package com.successTeam.employee.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -47,7 +47,7 @@ public class SwaggerConfig {
                  * withClassAnnotation()扫描类上的注解
                  * withMethodAnnotation()扫描方法上的注解
                  */
-                .apis(RequestHandlerSelectors.basePackage("com.successTeam.nanny.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.successTeam.employee.controller"))
                 //过滤某个路径
                 .paths(PathSelectors.any())
                 .build()
@@ -63,9 +63,9 @@ public class SwaggerConfig {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("天鹅到家宠物微服务接口文档")
-                .description("天鹅到家宠物微服务接口文档")
-                .contact(new Contact("hdh", null, "successTeam@qq.com"))
+                .title("天鹅到家员工微服务接口文档")
+                .description("天鹅到家员工微服务接口文档")
+                .contact(new Contact("hdh", null, "hdh@qq.com"))
                 .version("1.0")
                 .build();
     }

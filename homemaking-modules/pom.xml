@@ -15,7 +15,11 @@
         <module>homemaking-arrangement</module>
         <module>homemaking-move</module>
         <module>homemaking-appraise</module>
+<!--<<<<<<< Updated upstream-->
         <module>homemaking-cleaning</module>
+<!--=======-->
+        <module>homemaking-employee</module>
+<!--&gt;>>>>>> Stashed changes-->
     </modules>
     <artifactId>homemaking-modules</artifactId>
 

@@ -1,7 +1,14 @@
-package com.successTeam.nanny.service;
+package com.successTeam.employee.service;
 
 import com.mybatisflex.core.service.IService;
-import com.successTeam.nanny.pojo.entity.Employee;
+import com.successTeam.core.result.Result;
+import com.successTeam.employee.pojo.dto.EmployeeDto;
+import com.successTeam.employee.pojo.dto.EmployeeRegisterDto;
+import com.successTeam.employee.pojo.entity.Employee;
+import com.successTeam.employee.pojo.vo.EmployeeRegisterVo;
+
+import java.util.List;
+
 
 /**
  * com.successTeam.nanny.service
@@ -13,4 +20,10 @@ import com.successTeam.nanny.pojo.entity.Employee;
  */
 public interface EmployeeService extends IService<Employee> {
     Employee findById(Long id);
+
+    List<EmployeeRegisterVo> findByRegisterDto(EmployeeRegisterDto employeeRegisterDto);
+
+    void addEmployee(EmployeeDto employeeDto);
+
+    void addEmployeeDetail(EmployeeRegisterDto employeeRegisterDto);
 }

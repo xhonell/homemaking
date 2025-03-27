@@ -17,13 +17,14 @@ spring:
       discovery:
         service: cat-service
 mybatis-flex:
-  mapper-locations: classpath:/com/successTeam/cat/mapper/*.xml
-  type-aliases-package: com.successTeam.cat.pojo
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.successTeam.nanny.pojo
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 输出 SQL 日志
-  global-config:
-    column-config:
-      column-to-underline: true  # 关键配置：启用驼峰转下划线
+    map-underscore-to-camel-case: true
+#  global-config:
+#    column-config:
+#      column-to-underline: true  # 关键配置：启用驼峰转下划线
 logging:
   level:
     com.successTeam.cat.mapper: debug

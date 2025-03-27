@@ -1,5 +1,7 @@
-package com.successTeam.nanny.pojo.dto;
+package com.successTeam.employee.pojo.dto;
 
+import com.mybatisflex.annotation.Column;
+import com.successTeam.core.pojo.dto.PageQueryDto;
 import lombok.Data;
 
 /**
@@ -11,12 +13,26 @@ import lombok.Data;
  * Version: V1.0
  */
 @Data
-public class EmployeeRegisterDto {
-    private String employeeName;
-    private String password;
-    private String employeeType;
+public class EmployeeRegisterDto extends PageQueryDto {
 
-    private String employeePhone;
-    private String employeeSex;
+    @Column("employee_id")
+    private Long employeeId;
+    @Column("employee_detail_id")
+    private Long employeeDetailId;
+    @Column("employee_address")
+    private String employeeAddress;
+    @Column("employee_clans")
+    private String employeeClans;
+    @Column("employee_diploma")
+    private String employeeDiploma;
+    @Column("employee_constellation")
+    private String employeeConstellation;
+    @Column("employee_description")
+    private String employeeDescription;
+    @Column("employee_certificate")
+    private String employeeCertificate;
+    @Column("employee_appraise")
+    private String employeeAppraise;
+
 
 }

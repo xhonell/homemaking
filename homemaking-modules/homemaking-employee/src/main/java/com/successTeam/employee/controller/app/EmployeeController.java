@@ -1,10 +1,16 @@
-package com.successTeam.nanny.controller.app;
+package com.successTeam.employee.controller.app;
 
-import com.successTeam.nanny.service.EmployeeService;
+
+import com.successTeam.core.result.Result;
+import com.successTeam.employee.pojo.dto.EmployeeDto;
+import com.successTeam.employee.pojo.dto.EmployeeRegisterDto;
+import com.successTeam.employee.pojo.entity.Employee;
+import com.successTeam.employee.service.EmployeeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +33,25 @@ public class EmployeeController {
     @ApiOperation("根据id查询员工")
     public Object findById(Long id) {
         return employeeService.findById(id);
+    }
+
+    @PostMapping("/findByRegisterDto")
+    @ApiOperation("根据注册信息查询员工")
+    public Object findByRegisterDto(EmployeeRegisterDto employeeRegisterDto) {
+        return employeeService.findByRegisterDto(employeeRegisterDto);
+    }
+
+    @PostMapping("/addEmployee")
+    @ApiOperation("添加员工")
+    public Result addEmployee(EmployeeDto employeeDto) {
+        employeeService.addEmployee(employeeDto);
+        return Result.buildSuccess();
+    }
+
+    @PostMapping("/addEmployeeDetail")
+    @ApiOperation("员工申请注册档案")
+    public Result addEmployeeDetail(EmployeeRegisterDto employeeRegisterDto) {
+        employeeService.addEmployeeDetail(employeeRegisterDto);
+        return Result.buildSuccess();
     }
 }

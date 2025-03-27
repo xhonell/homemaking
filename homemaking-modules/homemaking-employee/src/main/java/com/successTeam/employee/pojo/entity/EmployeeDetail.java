@@ -1,21 +1,31 @@
-package com.successTeam.employee.pojo.vo;
+package com.successTeam.employee.pojo.entity;
 
 import com.mybatisflex.annotation.Column;
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
+import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * com.successTeam.nanny.pojo.vo
+ * com.successTeam.nanny.pojo.entity
  * User: hdh
- * Date: 2025/03/25 19:13
+ * Date: 2025/03/24 16:43
  * motto:   百折不挠
  * Description:
  * Version: V1.0
  */
 @Data
-public class EmployeeRegisterVo {
+@Table("tb_employee_detail")
+public class EmployeeDetail implements Serializable {
 
+    @Id(keyType = KeyType.Auto)
+    @Column("employee_detail_id")
+    private long employeeDetailId;
     @Column("employee_id")
-    private Long employeeId;
+    private long employeeId;
+
     @Column("employee_address")
     private String employeeAddress;
     @Column("employee_clans")
@@ -31,4 +41,8 @@ public class EmployeeRegisterVo {
     @Column("employee_appraise")
     private String employeeAppraise;
 
+    @Column("create_time")
+    private java.sql.Timestamp createTime;
+    @Column("update_time")
+    private java.sql.Timestamp updateTime;
 }
