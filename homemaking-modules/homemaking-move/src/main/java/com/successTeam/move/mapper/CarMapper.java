@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public interface CarMapper extends BaseMapper<Car> {
 
+    //查询车型底价、里程单价、额外人数价格计算里程总价、额外人数总价
     Map<String, Object> findCarById(Long carId);
 
 }

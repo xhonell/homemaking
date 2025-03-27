@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.successTeam.move.mapper.MoveMapper">
+
+    <!--1.查询所有搬家里程数列表-->
+    <select id="findAllMoveDistance" resultType="double">
+        select distinct move_distance from tb_move
+    </select>
+
+    <!--2.查询所有搬家额外人数列表-->
+    <select id="findAllPersonNumber" resultType="int">
+        select distinct person_number from tb_move
+    </select>
+
+</mapper>
+
+  
+   
+

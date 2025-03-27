@@ -9,6 +9,7 @@ import com.successTeam.move.service.MoveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,7 +32,8 @@ public class MoveServiceImpl extends ServiceImpl<MoveMapper, Move> implements Mo
     public void addMove(MoveAddDto moveAddDto) {
         Long carId = moveAddDto.getCarId();
         Long floorId = moveAddDto.getFloorId();
-        Double moveDistance = moveAddDto.getMoveDistance();
+        String startPosition = moveAddDto.getStartPosition();
+        String targetPosition = moveAddDto.getTargetPosition();
         Integer personNumber = moveAddDto.getPersonNumber();
 
         //获取基础里程、里程单价
@@ -41,17 +43,30 @@ public class MoveServiceImpl extends ServiceImpl<MoveMapper, Move> implements Mo
         Double extraPrice = (Double) carMap.get("extra_price");
 
         //计算里程总价、额外人数总价
+        Double moveDistance=0.0; //TODO 计算起始地址到目标地址的距离
         Double distancePrice=(moveDistance-baseDistance)*singlePrice;
         Double personPrice=personNumber*extraPrice;
 
         Move move=new Move();
         move.setCarId(carId);
         move.setFloorId(floorId);
+        move.setStartPosition(startPosition);
+        move.setTargetPosition(targetPosition);
         move.setMoveDistance(moveDistance);
         move.setDistancePrice(distancePrice);
         move.setPersonNumber(personNumber);
         move.setPersonPrice(personPrice);
 
         moveMapper.insert(move);
+    }
+
+    @Override
+    public List<Double> findAllMoveDistance() {
+        return moveMapper.findAllMoveDistance();
+    }
+
+    @Override
+    public List<Integer> findAllPersonNumber() {
+        return moveMapper.findAllPersonNumber();
     }
 }
